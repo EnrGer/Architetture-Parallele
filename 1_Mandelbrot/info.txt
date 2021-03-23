@@ -1,0 +1,4 @@
+deviceQuery
+nvcc -o mandelbrot_cuda mandelbrot_cuda.cu
+gcc -pthread -o mandelbrot_thread mandelbrot_thread.c bmp.c
+gcc -o mandelbrot mandelbrot.c bmp.c

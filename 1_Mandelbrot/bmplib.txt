@@ -1,0 +1,59 @@
+
+/*****************************************************************
+
+ Copyright 2003   PIER LUCA MONTESSORO
+
+ University of Udine
+ ITALY
+
+ montessoro@uniud.it
+ www.montessoro.it
+
+ This file is part of a freeware open source software package.
+ It can be freely used (as it is or modified) as long as this
+ copyright note is not removed.
+
+******************************************************************/
+
+
+This is a brief documentation of the Pier Luca Montessoro's bmplib
+functions that make easy reding, creating, modifying and writing
+bitmap files (BMP format, 24 bits/pixel, uncompressed).
+See also the example programs.
+
+
+DATA TYPES
+----------
+- COLORTRIPLE   represents a pixel; contains three fields (red, green, blue)
+- BITMAP        the bitmap stored in memory
+
+
+MACRO
+-----
+- PIXEL(image, row, column)    returns a colortriple representing the pixel
+
+
+FUNCTIONS
+---------
+- BITMAP  ReadBitmap (FILE *fp);
+  reads a bitmap file and returns the data structure representing it in memory
+
+- void  WriteBitmap (BITMAP bitmap, FILE *fp);
+  writes a bitmap file
+
+- BITMAP  CreateEmptyBitmap (dword height, dword width);
+  creates an empty bitmap structure in memory
+
+- void  ReleaseBitmapData (BITMAP *bitmap);
+  releases the memory allocated by CreateEmptyBitmap
+
+
+HOW TO COMPILE
+--------------
+- gcc -o <name>.exe -DBMPSHOWALL <name>.c bmp.c
+  (both source file and library files - bmp.c and bmp.h - must be 
+  in current directory)
+
+- using the script file cc_bmp.bat (DOS/Windows): cc_bmp <name>
+
+- using the script file cc_bmp.sh (Unix): ./cc_bmp.sh <name>
